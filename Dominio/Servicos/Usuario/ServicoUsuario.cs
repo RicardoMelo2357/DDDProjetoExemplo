@@ -4,6 +4,7 @@ using Dominio.Interfaces.Repositorio.Usuario;
 using Dominio.Interfaces.Servicos.Usuario;
 using Dominio.Recurso;
 using prmToolkit.NotificationPattern;
+using prmToolkit.NotificationPattern.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,6 +14,8 @@ namespace Dominio.Servicos.Usuario
     {
         private readonly IRepositorioUsuario _repositorio;
         private readonly IMapper _mapper;
+
+        public ServicoUsuario() { }
 
         public ServicoUsuario(IRepositorioUsuario repositorio, IMapper mapper)
         {
@@ -39,12 +42,16 @@ namespace Dominio.Servicos.Usuario
                 return null;
             }
 
+
+            if(_repositorio.Existe(x => x.Email.ToUpper() == request.Email.ToUpper()))
+                AddNotification("E-mail", Mensagens.JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA.ToFormat("e-mail", request.Email));
+
             var entidade = new Entidades.Usuario.Usuario(request);
             AddNotifications(entidade);
 
             if (IsInvalid()) return null;
-
-            return (UsuarioResponse)_repositorio.Adicionar(entidade);
+            
+            return _mapper.Map<UsuarioResponse>(_repositorio.Adicionar(entidade));
         }
 
         public UsuarioResponse Alterar(UsuarioRequest request)
@@ -69,7 +76,7 @@ namespace Dominio.Servicos.Usuario
             if (IsInvalid()) return null;
 
             var response = _repositorio.Editar(entidade);
-            return _mapper.Map<UsuarioResponse>(entidade);
+            return _mapper.Map<UsuarioResponse>(entidade); //ou (UsuarioResponse)entidade;
         }
 
         public IEnumerable<UsuarioResponse> Listar() => _mapper.Map<IEnumerable<UsuarioResponse>>(_repositorio.Listar().ToList());

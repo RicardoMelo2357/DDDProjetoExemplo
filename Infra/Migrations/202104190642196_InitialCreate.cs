@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -11,15 +11,15 @@
                 "dbo.Usuario",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(maxLength: 8000, unicode: false),
-                        Email = c.String(maxLength: 8000, unicode: false),
-                        Senha = c.String(maxLength: 8000, unicode: false),
+                        UsuarioId = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, maxLength: 100, unicode: false),
+                        Email = c.String(nullable: false, maxLength: 100, unicode: false),
+                        Senha = c.String(nullable: false, maxLength: 100, unicode: false),
                         DataInclusao = c.DateTime(nullable: false),
                         DataAlteracao = c.DateTime(),
                         Status = c.Boolean(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.UsuarioId);
             
         }
         

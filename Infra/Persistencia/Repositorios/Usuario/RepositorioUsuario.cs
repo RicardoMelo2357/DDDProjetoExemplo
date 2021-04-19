@@ -1,5 +1,6 @@
 ﻿using Dominio.Interfaces.Repositorio.Usuario;
 using Infra.Persistencia.Repositorios.Base;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 
 namespace Infra.Persistencia.Repositorios.Usuario
@@ -11,10 +12,7 @@ namespace Infra.Persistencia.Repositorios.Usuario
         {
             _context = context;
         }
-        public Dominio.Entidades.Usuario.Usuario Exemplo(Dominio.Entidades.Usuario.Usuario request)
-        {
-            var usuario = _context.Set<Dominio.Entidades.Usuario.Usuario>().SqlQuery("Select * from Usuario where UsuarioId = @id", new SqlParameter("@id", 1));
-            return request;
-        }
+        public DbSqlQuery<Dominio.Entidades.Usuario.Usuario> Exemplo(Dominio.Entidades.Usuario.Usuario request) =>
+            _context.Set<Dominio.Entidades.Usuario.Usuario>().SqlQuery("Select * from Usuario where UsuarioId = @id", new SqlParameter("@id", 1));
     }
 }

@@ -128,6 +128,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapper\Configuracao.cs" />
+    <Compile Include="AutoMapper\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unity\DependencyResolver.cs" />
     <Compile Include="Unity\UnityResolver.cs" />
@@ -135,6 +137,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{7360b70e-d78e-4d9d-b3df-4c9d1b319c7d}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infra\Infra.csproj">
+      <Project>{4f572b60-4717-4a5d-8363-17dd8aaa362c}</Project>
+      <Name>Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

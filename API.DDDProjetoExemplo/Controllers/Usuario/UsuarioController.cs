@@ -1,7 +1,6 @@
 ﻿using API.DDDProjetoExemplo.Controllers.Base;
 using Dominio.Argumentos.Usuario;
 using Dominio.Interfaces.Servicos.Usuario;
-using Infra.Transactions;
 using System;
 using System.Net.Http;
 using System.Web.Http;
@@ -9,10 +8,10 @@ using System.Web.Http;
 namespace API.DDDProjetoExemplo.Controllers.Usuario
 {
     [RoutePrefix("api/usuario")]
-    public class UsuarioController : ControllerBase<UsuarioRequest, UsuarioResponse>
+    public class UsuarioController : ControllerBase
     {
         private readonly IServicoUsuario _servicoUsuario;
-        public UsuarioController(IUnitOfWork unitOfWork, IServicoUsuario servicoUsuario) : base(unitOfWork)
+        public UsuarioController(IServicoUsuario servicoUsuario)
         {
             _servicoUsuario = servicoUsuario;
         }

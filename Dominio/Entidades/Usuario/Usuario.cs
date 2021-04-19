@@ -17,7 +17,7 @@ namespace Dominio.Entidades.Usuario
             Senha = request.Senha;
 
             new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Nome);
-            new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Email);
+            new AddNotifications<Usuario>(this).IfNotEmail(x => x.Email);
             new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Senha);
         }
 
@@ -26,9 +26,10 @@ namespace Dominio.Entidades.Usuario
             Nome = request.Nome;
             Email = request.Email;
             Senha = request.Senha;
+            if(request.Status.HasValue) Status = request.Status.Value;
 
             new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Nome);
-            new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Email);
+            new AddNotifications<Usuario>(this).IfNotEmail(x => x.Email);
             new AddNotifications<Usuario>(this).IfNullOrEmpty(x => x.Senha);
         }
     }

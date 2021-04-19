@@ -107,9 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202104182135210_Init.cs" />
-    <Compile Include="Migrations\202104182135210_Init.designer.cs">
-      <DependentUpon>202104182135210_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202104190642196_InitialCreate.cs" />
+    <Compile Include="Migrations\202104190642196_InitialCreate.designer.cs">
+      <DependentUpon>202104190642196_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistencia\Contexto.cs" />
@@ -117,8 +117,6 @@
     <Compile Include="Persistencia\Repositorios\Base\RepositorioBase.cs" />
     <Compile Include="Persistencia\Repositorios\Usuario\RepositorioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transactions\IUnitOfWork.cs" />
-    <Compile Include="Transactions\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
@@ -131,8 +129,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104182135210_Init.resx">
-      <DependentUpon>202104182135210_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104190642196_InitialCreate.resx">
+      <DependentUpon>202104190642196_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

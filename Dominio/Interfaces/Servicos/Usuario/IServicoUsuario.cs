@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Dominio.Interfaces.Servicos.Usuario
 {
-    public interface IServicoUsuario : IServicoBase<UsuarioRequest, UsuarioResponse>
+    public interface IServicoUsuario : IServicoBase
     {
         UsuarioResponse Adicionar(UsuarioRequest request);
         UsuarioResponse Alterar(UsuarioRequest request);

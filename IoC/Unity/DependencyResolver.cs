@@ -1,15 +1,16 @@
-﻿using AutoMapper;
+﻿using Dominio.Interfaces.Repositorio.Base;
 using Dominio.Interfaces.Repositorio.Usuario;
 using Dominio.Interfaces.Servicos.Usuario;
 using Dominio.Servicos.Usuario;
 using Infra.Persistencia;
+using Infra.Persistencia.Repositorios.Base;
 using Infra.Persistencia.Repositorios.Usuario;
-using Infra.Transactions;
+using IoC.AutoMapper;
 using prmToolkit.NotificationPattern;
 using System.Data.Entity;
 using Unity;
 using Unity.Lifetime;
-using Utilidade.AutoMapper;
+
 
 namespace IoC.Unity
 {
@@ -17,17 +18,16 @@ namespace IoC.Unity
     {
         public static void Resolve(UnityContainer container)
         {
-            Configuration(container);
+            Configuracao(container);
             Servicos(container);
             Repositorios(container);
         }
 
-        private static void Configuration(UnityContainer container)
+        private static void Configuracao(UnityContainer container)
         {
-            container.RegisterInstance(new Configuracao().Configure(container));
             container.RegisterType<DbContext, Contexto>(new HierarchicalLifetimeManager());
-            container.RegisterType<IUnitOfWork, UnitOfWork>(new HierarchicalLifetimeManager());
             container.RegisterType<INotifiable, Notifiable>(new HierarchicalLifetimeManager());
+            container.RegisterInstance(new Configuracao().Configure(container));
         }
 
         private static void Servicos(UnityContainer container)
@@ -37,6 +37,7 @@ namespace IoC.Unity
 
         private static void Repositorios(UnityContainer container)
         {
+            container.RegisterType(typeof(IRepositorioBase<,>), typeof(RepositorioBase<,>));
             container.RegisterType<IRepositorioUsuario, RepositorioUsuario>(new HierarchicalLifetimeManager());
         }
     }

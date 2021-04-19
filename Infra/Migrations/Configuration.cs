@@ -10,6 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            ContextKey = "Infra.Persistencia.Contexto";
         }
 
         protected override void Seed(Infra.Persistencia.Contexto context)

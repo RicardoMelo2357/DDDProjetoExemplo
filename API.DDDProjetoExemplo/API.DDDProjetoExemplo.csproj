@@ -221,14 +221,8 @@
       <Project>{4f572b60-4717-4a5d-8363-17dd8aaa362c}</Project>
       <Name>Infra</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilidade\Utilidade.csproj">
-      <Project>{8e922fa3-46a0-4a4e-bd5b-8a1e68d19278}</Project>
-      <Name>Utilidade</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\Autenticacao\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

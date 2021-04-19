@@ -12,8 +12,7 @@ namespace Dominio.Argumentos.Usuario
             return new UsuarioResponse()
             {
                 Nome = entidade.Nome,
-                Email = entidade.Email,
-                //Message = XGame.Domain.Resources.Message.OPERACAO_REALIZADA_COM_SUCESSO
+                Email = entidade.Email
             };
         }
     }

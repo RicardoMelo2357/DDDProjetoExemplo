@@ -18,5 +18,6 @@ namespace Dominio.Interfaces.Repositorio.Base
         IQueryable<TEntidade> ListarOrdenadosPor<TKey>(Expression<Func<TEntidade, TKey>> ordem, bool ascendente = true, params Expression<Func<TEntidade, object>>[] includeProperties);
         TEntidade ObterPor(Func<TEntidade, bool> where, params Expression<Func<TEntidade, object>>[] includeProperties);
         TEntidade ObterPorId(TId id, params Expression<Func<TEntidade, object>>[] includeProperties);
+        void Dispose();
     }
 }

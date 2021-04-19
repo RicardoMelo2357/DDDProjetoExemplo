@@ -77,5 +77,23 @@ namespace Dominio.Recurso {
                 return ResourceManager.GetString("DADOS_NAO_INFORMADOS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to já existe um {0} cadastrado no sistema!.
+        /// </summary>
+        public static string JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA {
+            get {
+                return ResourceManager.GetString("JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to operação realizada com sucesso!.
+        /// </summary>
+        public static string OPERACAO_REALIZADA_COM_SUCESSO {
+            get {
+                return ResourceManager.GetString("OPERACAO_REALIZADA_COM_SUCESSO", resourceCulture);
+            }
+        }
     }
 }

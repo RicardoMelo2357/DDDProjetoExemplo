@@ -1,6 +1,7 @@
 ﻿using prmToolkit.NotificationPattern;
+using System;
 
 namespace Dominio.Interfaces.Servicos.Base
 {
-    public interface IServicoBase<in TRequest, out TResponse> : INotifiable { }
+    public interface IServicoBase : INotifiable, IDisposable { }
 }
