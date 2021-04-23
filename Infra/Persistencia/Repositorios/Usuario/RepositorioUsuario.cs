@@ -14,5 +14,10 @@ namespace Infra.Persistencia.Repositorios.Usuario
         }
         public DbSqlQuery<Dominio.Entidades.Usuario.Usuario> Exemplo(Dominio.Entidades.Usuario.Usuario request) =>
             _context.Set<Dominio.Entidades.Usuario.Usuario>().SqlQuery("Select * from Usuario where UsuarioId = @id", new SqlParameter("@id", 1));
+
+        public DbSqlQuery<Dominio.Entidades.Usuario.Usuario> Exemplo2(Dominio.Entidades.Usuario.Usuario request)
+        {
+            return _context.Set<Dominio.Entidades.Usuario.Usuario>().SqlQuery("Select * from Usuario where nome = teste");
+        }
     }
 }

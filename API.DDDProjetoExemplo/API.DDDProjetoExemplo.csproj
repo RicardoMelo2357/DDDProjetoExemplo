@@ -221,6 +221,10 @@
       <Project>{4f572b60-4717-4a5d-8363-17dd8aaa362c}</Project>
       <Name>Infra</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IoC\IoC.csproj">
+      <Project>{cb9079f3-9d9b-47b6-9632-4b2bccf66ff6}</Project>
+      <Name>IoC</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

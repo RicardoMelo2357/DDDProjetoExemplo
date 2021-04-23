@@ -9,13 +9,9 @@ namespace IoC.Unity
     {
         protected IUnityContainer container;
 
-        //teste merge
-
         public UnityResolver(IUnityContainer container)
         {
-            if (container == null)
-                throw new ArgumentNullException("container");
-
+            if (container == null) throw new ArgumentNullException("container");
             this.container = container;
         }
 

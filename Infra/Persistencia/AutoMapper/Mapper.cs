@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using Dominio.Argumentos.Usuario;
 using Dominio.Entidades.Usuario;
-using Unity;
 
-namespace Utilidade.AutoMapper
+namespace Infra.Persistencia.AutoMapper
 {
-    public class Map : Profile
+    public class Mapper : Profile
     {
-        public Map()
+        public Mapper()
         {
             CreateMap<Usuario, UsuarioResponse>();
         }

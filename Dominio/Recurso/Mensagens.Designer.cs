@@ -61,7 +61,7 @@ namespace Dominio.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dados não encontrados.
+        ///   Looks up a localized string similar to Dados não encontrados.
         /// </summary>
         public static string DADOS_NAO_ENCONTRADOS {
             get {
@@ -70,7 +70,7 @@ namespace Dominio.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dados não informados.
+        ///   Looks up a localized string similar to Dados não informados.
         /// </summary>
         public static string DADOS_NAO_INFORMADOS {
             get {
@@ -79,16 +79,34 @@ namespace Dominio.Recurso {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to já existe um {0} cadastrado no sistema!.
+        ///   Looks up a localized string similar to Este {0} já cadastrado no sistema!.
         /// </summary>
-        public static string JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA {
+        public static string ESTE_X0_JA_ESTA_CADASTRADO_NO_SISTEMA {
             get {
-                return ResourceManager.GetString("JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA", resourceCulture);
+                return ResourceManager.GetString("ESTE_X0_JA_ESTA_CADASTRADO_NO_SISTEMA", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to operação realizada com sucesso!.
+        ///   Looks up a localized string similar to esta é uma mensagem de teste!.
+        /// </summary>
+        public static string MENSAGEM_TESTE {
+            get {
+                return ResourceManager.GetString("MENSAGEM_TESTE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo {0} é invalido!.
+        /// </summary>
+        public static string O_CAMPO_X0_INVALIDO {
+            get {
+                return ResourceManager.GetString("O_CAMPO_X0_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operação realizada com sucesso!.
         /// </summary>
         public static string OPERACAO_REALIZADA_COM_SUCESSO {
             get {

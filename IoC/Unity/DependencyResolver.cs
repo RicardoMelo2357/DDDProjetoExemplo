@@ -3,9 +3,9 @@ using Dominio.Interfaces.Repositorio.Usuario;
 using Dominio.Interfaces.Servicos.Usuario;
 using Dominio.Servicos.Usuario;
 using Infra.Persistencia;
+using Infra.Persistencia.AutoMapper;
 using Infra.Persistencia.Repositorios.Base;
 using Infra.Persistencia.Repositorios.Usuario;
-using IoC.AutoMapper;
 using prmToolkit.NotificationPattern;
 using System.Data.Entity;
 using Unity;
@@ -27,7 +27,7 @@ namespace IoC.Unity
         {
             container.RegisterType<DbContext, Contexto>(new HierarchicalLifetimeManager());
             container.RegisterType<INotifiable, Notifiable>(new HierarchicalLifetimeManager());
-            container.RegisterInstance(new Configuracao().Configure(container));
+            container.RegisterInstance(new AutoMapperConfig().Configure().CreateMapper());
         }
 
         private static void Servicos(UnityContainer container)

@@ -42,9 +42,8 @@ namespace Dominio.Servicos.Usuario
                 return null;
             }
 
-
             if(_repositorio.Existe(x => x.Email.ToUpper() == request.Email.ToUpper()))
-                AddNotification("E-mail", Mensagens.JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA.ToFormat("e-mail", request.Email));
+                AddNotification("E-mail", Mensagens.ESTE_X0_JA_ESTA_CADASTRADO_NO_SISTEMA.ToFormat("e-mail", request.Email));
 
             var entidade = new Entidades.Usuario.Usuario(request);
             AddNotifications(entidade);

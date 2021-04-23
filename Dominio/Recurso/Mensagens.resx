@@ -118,15 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="DADOS_NAO_ENCONTRADOS" xml:space="preserve">
-    <value>dados não encontrados</value>
+    <value>Dados não encontrados</value>
   </data>
   <data name="DADOS_NAO_INFORMADOS" xml:space="preserve">
-    <value>dados não informados</value>
+    <value>Dados não informados</value>
   </data>
-  <data name="JA_EXISTE_UM_X0_CADASTRADO_NO_SISTEMA" xml:space="preserve">
-    <value>já existe um {0} cadastrado no sistema!</value>
+  <data name="ESTE_X0_JA_ESTA_CADASTRADO_NO_SISTEMA" xml:space="preserve">
+    <value>Este {0} já cadastrado no sistema!</value>
+  </data>
+  <data name="MENSAGEM_TESTE" xml:space="preserve">
+    <value>esta é uma mensagem de teste!</value>
   </data>
   <data name="OPERACAO_REALIZADA_COM_SUCESSO" xml:space="preserve">
-    <value>operação realizada com sucesso!</value>
+    <value>Operação realizada com sucesso!</value>
+  </data>
+  <data name="O_CAMPO_X0_INVALIDO" xml:space="preserve">
+    <value>O campo {0} é invalido!</value>
   </data>
 </root>

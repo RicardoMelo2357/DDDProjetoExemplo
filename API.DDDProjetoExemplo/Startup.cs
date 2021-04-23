@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
+﻿using IoC.Unity;
+using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using System.Net.Http.Extensions.Compression.Core.Compressors;
 using System.Web.Http;
 using Unity;
-using Utilidade.Unity;
 
 namespace API.DDDProjetoExemplo
 {
@@ -20,17 +20,12 @@ namespace API.DDDProjetoExemplo
 
             // Configure Dependency Injection
             var container = new UnityContainer();
-
             DependencyResolver.Resolve(container);
             config.DependencyResolver = new UnityResolver(container);
 
             ConfigureWebApi(config);
-            //ConfigureOAuth(app, container);
-
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
-
             app.UseWebApi(config);
-
         }
 
         public static void ConfigureWebApi(HttpConfiguration config)
@@ -49,15 +44,11 @@ namespace API.DDDProjetoExemplo
 
             // Modifica a serialização
             formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = PreserveReferencesHandling.None;
-
             Register(config);
         }
 
         public static void Register(HttpConfiguration config)
         {
-            //add Uow action filter globally
-            //config.Filters.Add(new UnitOfWorkActionFilter());
-
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -66,19 +57,5 @@ namespace API.DDDProjetoExemplo
                 defaults: new { id = RouteParameter.Optional }
             );
         }
-
-        //public void ConfigureOAuth(IAppBuilder app, UnityContainer container)
-        //{
-        //    OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
-        //    {
-        //        AllowInsecureHttp = true,
-        //        TokenEndpointPath = new PathString("/token"),
-        //        AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
-        //        //Provider = new AuthorizationProvider(container)
-        //    };
-
-        //    app.UseOAuthAuthorizationServer(OAuthServerOptions);
-        //    app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
-        //}
     }
 }
